@@ -55,7 +55,9 @@ func searchImageBySauceNAO(url string, showAdult bool) (msg message.Message, err
 	creator := fmt.Sprint(result.Get("data").Get("creator").String() + "\n")
 	pixiv := fmt.Sprintf("pixiv_id：%s\n", result.Get("data").Get("pixiv_id").String())
 	source := fmt.Sprintf("源：%s\n", result.Get("data").Get("source").String())
-	return message.Message{message.Text(title), imgMsg, message.Text(text), message.Text(creator), message.Text(pixiv), message.Text(source)}, nil
+
+	all := result.Get("data").String()
+	return message.Message{message.Text(title), imgMsg, message.Text(text), message.Text(creator), message.Text(pixiv), message.Text(source), message.Text(all)}, nil
 }
 
 func formatMoeResultSimilarity(similarity gjson.Result) string {
