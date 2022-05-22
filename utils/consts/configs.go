@@ -9,3 +9,4 @@ const PluginConfigAdminLevelKey = "adminlevel" // 配置各插件管理员权限
 
 const APIOfTraceMoeKey = "tracemoe"
 const APIOfHibiAPIKey = "hibiapi"
+const APIOfSauceNAOAPIKey = "SauceNAO"

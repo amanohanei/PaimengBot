@@ -37,6 +37,7 @@ import (
 	_ "github.com/RicheyJang/PaimengBot/plugins/pixiv_query"
 	_ "github.com/RicheyJang/PaimengBot/plugins/pixiv_rank"
 	_ "github.com/RicheyJang/PaimengBot/plugins/random"
+	_ "github.com/RicheyJang/PaimengBot/plugins/search_image"
 	_ "github.com/RicheyJang/PaimengBot/plugins/short_url"
 	_ "github.com/RicheyJang/PaimengBot/plugins/statistic"
 	_ "github.com/RicheyJang/PaimengBot/plugins/translate"
