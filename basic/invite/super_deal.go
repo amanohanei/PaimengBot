@@ -36,8 +36,8 @@ func init() {
 	if proxy == nil {
 		return
 	}
-	proxy.OnCommands([]string{"查看所有好友"}).SetBlock(true).FirstPriority().Handle(handleAllFriends)
-	proxy.OnCommands([]string{"查看所有群组", "查看所有群"}).SetBlock(true).FirstPriority().Handle(handleAllGroups)
+	proxy.OnCommands([]string{"查看所有好友"}, zero.OnlyToMe).SetBlock(true).FirstPriority().Handle(handleAllFriends)
+	proxy.OnCommands([]string{"查看所有群组", "查看所有群"}, zero.OnlyToMe).SetBlock(true).FirstPriority().Handle(handleAllGroups)
 	proxy.OnRegex("^(同意|拒绝)好友(请求)?(.+)").SetBlock(true).FirstPriority().Handle(setFriendRequest)
 	proxy.OnRegex("^(同意|拒绝)群组?(请求|邀请)?(.+)").SetBlock(true).FirstPriority().Handle(setGroupRequest)
 	proxy.OnCommands([]string{"退群"}, zero.OnlyPrivate).SetBlock(true).FirstPriority().Handle(quitGroup)

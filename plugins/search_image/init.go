@@ -23,7 +23,7 @@ func init() {
 	if proxy == nil {
 		return
 	}
-	proxy.OnCommands([]string{"搜图", "什么本子", "本子"}).SetBlock(true).SecondPriority().Handle(searchImageHandler)
+	proxy.OnCommands([]string{"搜图", "什么本子", "本子"}, zero.OnlyToMe).SetBlock(true).SecondPriority().Handle(searchImageHandler)
 	proxy.AddAPIConfig(consts.APIOfSauceNAOAPIKey, "saucenao.com")
 	proxy.AddConfig("api_key", "")
 }

@@ -47,6 +47,7 @@ func (p *PluginProxy) OnRegex(reg string, rules ...zero.Rule) *zero.Matcher {
 
 // OnCommands 添加新的命令匹配器
 func (p *PluginProxy) OnCommands(cmd []string, rules ...zero.Rule) *zero.Matcher {
+	rules = append(rules, zero.OnlyToMe)
 	matcher := p.OnMessage(append([]zero.Rule{zero.CommandRule(cmd...)}, rules...)...)
 	p.addCommands(cmd, rules...)
 	return matcher
@@ -118,7 +119,7 @@ func (p *PluginProxy) DoNotNeedOnlyToMe() bool {
 	case []string, []interface{}:
 		return utils.StringSliceContain(cast.ToStringSlice(c), p.key)
 	default:
-		return false
+		return true
 	}
 }
 

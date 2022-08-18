@@ -10,6 +10,7 @@ import (
 	"github.com/RicheyJang/PaimengBot/utils/client"
 	"github.com/RicheyJang/PaimengBot/utils/consts"
 
+	log "github.com/sirupsen/logrus"
 	"github.com/tidwall/gjson"
 )
 
@@ -31,7 +32,9 @@ func getPixivRankByHIBI(rankType string, num int, date string) ([]pixiv.PictureI
 	}
 	// 调用
 	c := client.NewHttpClient(nil)
+	log.Infof(api)
 	rsp, err := c.GetGJson(api)
+	log.Infof(rsp.String())
 	if err != nil {
 		return nil, err
 	}
